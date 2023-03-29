@@ -7,14 +7,14 @@
 
 import Accelerate
 
-enum ReflectionBufferTransformerError: Error {
+public enum ReflectionBufferTransformerError: Error {
     case cannotCreateDestinationImageBuffer
 }
 
 @available(iOS 13.0.0, *)
-class ReflectionBufferTransformer: BufferTransformer {
+public class ReflectionBufferTransformer: BufferTransformer {
     
-    func transformBuffer(from buffer: vImage_Buffer, withFormat format: vImage_CGImageFormat) async throws -> vImage_Buffer {
+    public func transformBuffer(from buffer: vImage_Buffer, withFormat format: vImage_CGImageFormat) async throws -> vImage_Buffer {
         guard var destinationBuffer = try? vImage_Buffer(width: Int(buffer.width),
                                                          height: Int(buffer.height),
                                                          bitsPerPixel: format.bitsPerPixel) else {

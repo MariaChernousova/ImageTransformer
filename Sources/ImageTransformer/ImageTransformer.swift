@@ -1,14 +1,14 @@
 import UIKit
 import Accelerate
 
-protocol BufferTransformer {
+public protocol BufferTransformer {
     
     @available(iOS 13.0.0, *)
     func transformBuffer(from buffer: vImage_Buffer, withFormat format: vImage_CGImageFormat) async throws -> vImage_Buffer
     
 }
 
-enum ImageTransformerError: Error {
+public enum ImageTransformerError: Error {
     case cannotGetCGImage
     case cannotCreateBuffer
     case cannotTransformImage
@@ -19,6 +19,8 @@ enum ImageTransformerError: Error {
 
 @available(iOS 13.0, *)
 public class ImageTransformer {
+    
+    public init() { }
     
     public enum Strategy {
         case reflection
